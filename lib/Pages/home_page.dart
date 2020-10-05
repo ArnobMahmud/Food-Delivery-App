@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:food_delivery_app/Pages/card.dart';
 
 class MyHomePage extends StatefulWidget {
   @override
@@ -97,6 +98,14 @@ class _MyHomePageState extends State<MyHomePage> {
                     ),
                     color: Color(0xFFfc6126),
                   ),
+                ],
+              ),
+            ),
+            Expanded(
+              child: GridView.count(
+                crossAxisCount: 2,
+                children: [
+                  FoodCard()
                 ],
               ),
             )
