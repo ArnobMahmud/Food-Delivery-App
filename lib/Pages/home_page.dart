@@ -55,30 +55,29 @@ class _MyHomePageState extends State<MyHomePage> {
         ],
       ),
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              "Let's Eat ! \nOrder Your Food Now",
-              style: TextStyle(
-                  color: Colors.purple,
-                  fontSize: 30,
-                  fontWeight: FontWeight.w700),
-            ),
-            SizedBox(
-              height: 10.0,
-            ),
-            Container(
-              width: double.infinity,
-              height: 50.0,
-              decoration: BoxDecoration(
-                color: Color(0x55d2d2d2),
-                borderRadius: BorderRadius.circular(30),
+          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                "Let's Eat ! \nOrder Your Food Now",
+                style: TextStyle(
+                    color: Colors.purple,
+                    fontSize: 30,
+                    fontWeight: FontWeight.w700),
               ),
-              child: Row(
-                children: [
+              SizedBox(
+                height: 10.0,
+              ),
+              Container(
+                width: double.infinity,
+                height: 50.0,
+                decoration: BoxDecoration(
+                  color: Color(0x55d2d2d2),
+                  borderRadius: BorderRadius.circular(30),
+                ),
+                child: Row(children: [
                   Expanded(
                       child: TextField(
                     decoration: InputDecoration(
@@ -99,19 +98,23 @@ class _MyHomePageState extends State<MyHomePage> {
                     ),
                     color: Color(0xFFfc6126),
                   ),
-                  GridView.builder(
-                      itemCount: foodItems.length,
-                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                          crossAxisCount: 2),
-                      itemBuilder: (context, index) {
-                        return FoodCard(foods: foodItems[index],);
-                      })
-                ],
+                  SizedBox(
+                    height: 20,
+                  ),
+                ]),
               ),
-            ),
-          ],
-        ),
-      ),
+              // GridView.builder(
+              //     itemCount: foodItems.length,
+              //     gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              //         crossAxisCount: 2
+              //         ),
+              //     itemBuilder: (context, index) {
+              //       return FoodCard(
+              //         foods: foodItems[index],
+              //       );
+              //     })
+            ],
+          )),
     );
   }
 }

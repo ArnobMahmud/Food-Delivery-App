@@ -12,51 +12,52 @@ class FoodCard extends StatefulWidget {
 class _FoodCardState extends State<FoodCard> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-        child: Card(
-            child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
+    return Card(
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+        child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Image.asset(
+                  widget.foods.image,
+                  height: 100.0,
+                ),
+                SizedBox(
+                  height: 10.0,
+                ),
+                Flexible(
+                  child: Text(
+                    widget.foods.title,
+                    style: TextStyle(
+                        color: Colors.blue[400],
+                        fontSize: 26.0,
+                        fontWeight: FontWeight.w600),
+                  ),
+                ),
+                SizedBox(
+                  height: 10.0,
+                ),
+                Row(
                   children: [
-                    Image.network(
-                      widget.foods.image,
-                      height: 100.0,
-                    ),
-                    SizedBox(
-                      height: 10.0,
-                    ),
-                    Flexible(
-                      child: Text( widget.foods.title,
-                        style: TextStyle(
-                            color: Colors.blue[400],
-                            fontSize: 26.0,
-                            fontWeight: FontWeight.w600),
+                    Expanded(
+                      child: Text(
+                        "${widget.foods.price}",
+                        style: TextStyle(fontSize: 30),
                       ),
                     ),
-                    SizedBox(
-                      height: 10.0,
-                    ),
-                    Row(
-                      children: [
-                        Expanded(
-                          child: Text(
-                           "${widget.foods.price}",
-                            style: TextStyle(fontSize: 30),
-                          ),
+                    Expanded(
+                      child: IconButton(
+                        icon: Icon(
+                          Icons.favorite,
+                          color: Colors.red,
                         ),
-                        Expanded(
-                          child: IconButton(
-                            icon: Icon(
-                              Icons.favorite,
-                              color: Colors.red,
-                            ),
-                            onPressed: () {},
-                          ),
-                        )
-                      ],
+                        onPressed: () {},
+                      ),
                     )
                   ],
-                ))));
+                )
+              ],
+            )));
   }
 }
