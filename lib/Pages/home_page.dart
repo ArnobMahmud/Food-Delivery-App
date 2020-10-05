@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:food_delivery_app/Pages/card.dart';
+import 'package:food_delivery_app/db/temoprary_data.dart';
+import 'package:food_delivery_app/widgets/card.dart';
 
 class MyHomePage extends StatefulWidget {
   @override
@@ -98,17 +99,16 @@ class _MyHomePageState extends State<MyHomePage> {
                     ),
                     color: Color(0xFFfc6126),
                   ),
+                  GridView.builder(
+                      itemCount: foodItems.length,
+                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                          crossAxisCount: 2),
+                      itemBuilder: (context, index) {
+                        return FoodCard(foods: foodItems[index],);
+                      })
                 ],
               ),
             ),
-            Expanded(
-              child: GridView.count(
-                crossAxisCount: 2,
-                children: [
-                  FoodCard()
-                ],
-              ),
-            )
           ],
         ),
       ),
